@@ -1,0 +1,19 @@
+%% Controller Testbed
+
+%%
+clear
+%%
+path_vec = [0:100; %x-values
+    zeros(1,101); %y-values
+    zeros(1,101)]; %heading values
+L = 4.5; %m, car length
+
+x0 = 0;
+y0 = 0;
+theta0 = 0;
+
+sim PID_FUQROS
+
+plot(pos_des(1,:),pos_des(2,:),'--r')
+hold on
+plot(pos_actual(1,:),pos_actual(2,:),'--')
