@@ -8,21 +8,42 @@ path_vec = [0:100; %x-values
     zeros(1,101); %y-values
     zeros(1,101)]; %heading values
 L = 4.5; %m, car length
+%PD gain values
+% kp = 1.5;
+% kv = .001;
+% ki = 0;
 
-x0 = 10;
-y0 = 10;
-theta0 = -pi;
+% PID gain values
+% kp = 4;
+% kv = .005;
+% ki = 0.01;
+
+kp = 1;
+kv = 0;
+ki = 0;
+
+x0 = 30;
+y0 = 30;
+theta0 = pi/2;
 
 sim PID_FUQROS
 
-figure
+figure(1)
 plot(pos_des(:,1),pos_des(:,2),'--r')
 hold on
 plot(pos_actual(:,1),pos_actual(:,2),'--')
 axis equal
+legend('Desired Position/Path','Actual Position')
+title('Position')
+grid on
+hold off
 
-figure
+figure(2)
 plot(theta.time,theta.signals.values)
+title('theta over time')
+grid on
 
-figure
+figure(3)
 plot(phi.time,phi.signals.values)
+title('phi over time')
+grid on
