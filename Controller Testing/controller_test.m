@@ -18,13 +18,13 @@ L = 4.5; %m, car length
 % kv = .005;
 % ki = 0.01;
 
-kp = 1;
+kp = .07;
 kv = 0;
 ki = 0;
 
-x0 = 30;
-y0 = 30;
-theta0 = pi/2;
+x0 = -5;
+y0 = -5;
+theta0 = 0;
 
 sim PID_FUQROS
 
