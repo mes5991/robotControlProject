@@ -12,28 +12,32 @@ L = 4.5; %m, car length
 % ki = 0;
 
 % PID gain values
-kp = 4;
-kv = .005;
-ki = 0.01;
+kp = 2;
+kv = 10;
+ki = 0;
 
 % kp = 50;
 % kv = 10;
 % ki = 1;
 
-x0 = -5;
-y0 = -5;
-theta0 = 0;
+x0 = 0;
+y0 = 0;
+theta0 = pi/6;
 
-sim PID_FUQROS
+sim path_follower_main
 
 desiredPath = reshape(desiredPath(1,:),[],3);
 
 figure(1)
-plot(chosenPath(:,1),chosenPath(:,2),'--r')
+plot(chosenPath(:,1),chosenPath(:,2),'r')
 hold on
 plot(desiredPath(:,1),desiredPath(:,2),'--')
 plot(actualPath(:,1),actualPath(:,2),'g')
 axis equal
+for i = 1:1000:length(theta.time)
+    timeStamp = num2str(theta.time(i));
+    text(actualPath(i,1),actualPath(i,2),timeStamp)
+end
 legend('Chosen Path','Desired Path','Actual Path')
 title('Position')
 grid on
