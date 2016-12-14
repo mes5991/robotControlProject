@@ -13,7 +13,7 @@ L = 4.5; %m, car length
 
 % PID gain values
 kp = 2;
-kv = 1;
+kv = 2;
 ki = 0;
 
 % kp = 50;
